@@ -41,10 +41,17 @@ anglePhi = math.acos((distLR*distLR + l2*l2 - r2*r2)/(2*distLR*l2));    # Angle 
 x3 = l2*math.cos(angleLR + anglePhi) + x1;
 y3 = l2*math.sin(angleLR + anglePhi) + y1;
 
+# compute l3 and r3
+distBLS = math.sqrt((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4));                 # length l3
+distBRS = math.sqrt((x3-x5)*(x3-x5) + (y3-y5)*(y3-y5));                 # length r3
+
+# Define lines l1, l2, r1, r2
 l1 = np.array([[x4, y4],[x1, y1]]);
 l2 = np.array([[x1, y1],[x3, y3]]);
+l3 = np.array([[x4, y4],[x3, y3]]);
 r1 = np.array([[x5, y5],[x2, y2]]);
 r2 = np.array([[x2, y2],[x3, y3]]);
+r3 = np.array([[x5, y5],[x3, y3]]);
 
 
 # Plotting
@@ -55,8 +62,10 @@ plt.figure()
 # lines l1, l2, r1, r2
 plt.plot(l1[:,0], l1[:,1], color='black', label='l1')
 plt.plot(l2[:,0], l2[:,1], color='black', label='l2')
+plt.plot(l3[:,0], l3[:,1], color='black', linestyle='--', label='l3')
 plt.plot(r1[:,0], r1[:,1], color='black', label='r1')
 plt.plot(r2[:,0], r2[:,1], color='black', label='r2')
+plt.plot(r3[:,0], r3[:,1], color='black', linestyle='--', label='r3')
 
 # points BL, BR, L, R, S
 plt.plot(x4, y4, '.', color='black', markersize=markerSize, label='BL')
