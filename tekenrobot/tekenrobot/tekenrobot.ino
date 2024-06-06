@@ -19,7 +19,7 @@ const int y5 = 0.0;
 const int alpha = 135.0;
 const int beta = 45.0;
 
-// define computer angles
+// define computed angles
 float compAngleAlpha;
 float compAngleBeta;
 
